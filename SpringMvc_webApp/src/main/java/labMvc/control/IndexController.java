@@ -44,4 +44,9 @@ public class IndexController {
     		} else  
     			return "form/form";
     }     
+    @RequestMapping(value = "/finalPage", method = RequestMethod.GET)
+    public String finalPage() {      
+      return "/form/final";
+    }
+
 }
