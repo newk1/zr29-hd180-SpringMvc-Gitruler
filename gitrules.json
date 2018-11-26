@@ -1,0 +1,291 @@
+{
+  "setup-files": [],
+  "rules": [
+    {
+      "rule": "text",
+      "separator": "-",
+      "width": 100,
+      "heading": "SETTING UP REPOSITORY",
+      "double-space": true
+    },
+    {
+      "rule": "head-exists",
+      "stop-on-fail": true,
+      "alternative-title": "Did you create the Repo?"
+    },
+    {
+      "rule": "text",
+      "separator": "-",
+      "width": 100,
+      "heading": "CHANGING SERVER PORT",
+      "double-space": true
+    },
+    {
+      "rule": "file-contains-in-head",
+      "path": "SpringMvc_webApp/src/main/resources/application.properties",
+      "contents": "server.port=8080",
+      "ignore-case": true,
+      "alternative-title": "Server port changed to 8080",
+      "score-if-correct": 10
+    },
+    {
+      "rule": "commit-with-message-updated-file",
+      "path": "SpringMvc_webApp/src/main/resources/application.properties",
+      "contents": "change server port to 8080",
+      "ignore-case": true,
+      "score-if-correct": 10,
+      "alternative-title": "Server port change was committed with the right message"
+    },
+    {
+      "rule": "tag-exists",
+      "tag": "server-port",
+      "alternative-title": "server-port tag was created",
+      "score-if-correct": 20
+    },
+    {
+      "rule": "commit-with-message-has-tag",
+      "tag": "server-port",
+      "contents": "change server port to 8080",
+      "alternative-title": "Server port change commit was tagged with the right tag name",
+      "ignore-case": true,
+      "score-if-correct": 30
+    },
+    {
+      "rule": "text",
+      "separator": "-",
+      "width": 100,
+      "heading": "REMOVING FILES",
+      "double-space": true
+    },
+    {
+      "rule": "file-untracked-in-head",
+      "path": "SpringMvc_webApp/backups/snapshot_1.bak",
+      "alternative-title": "Backup file 'snapshot_1' has been deleted",
+      "score-if-correct": 5
+    },
+    {
+      "rule": "file-untracked-in-head",
+      "path": "SpringMvc_webApp/backups/release.bak",
+      "alternative-title": "Backup file 'release' has been deleted",
+      "score-if-correct": 5
+    },
+    {
+      "rule": "file-untracked-in-head",
+      "path": "SpringMvc_webApp/backups/db_09.bak",
+      "alternative-title": "Backup file 'db_09' has been deleted",
+      "score-if-correct": 5
+    },
+    {
+      "rule": "commit-with-message-updated-file",
+      "path": "SpringMvc_webApp/backups/snapshot_1.bak",
+      "alternative-title": "Backup file 'snapshot_1' deletion was commited with the right message",
+      "contents": "remove backup files",
+      "ignore-case": true,
+      "score-if-correct": 5
+    },
+    {
+      "rule": "commit-with-message-updated-file",
+      "path": "SpringMvc_webApp/backups/release.bak",
+      "alternative-title": "Backup file 'release' deletion was commited with the right message",
+      "contents": "remove backup files",
+      "ignore-case": true,
+      "score-if-correct": 5
+    },
+    {
+      "rule": "commit-with-message-updated-file",
+      "path": "SpringMvc_webApp/backups/db_09.bak",
+      "alternative-title": "Backup file 'db_09' deletion was commited with the right message",
+      "contents": "remove backup files",
+      "ignore-case": true,
+      "score-if-correct": 5
+    },
+    {
+      "rule": "text",
+      "separator": "-",
+      "width": 100,
+      "heading": "MOVING FILES",
+      "double-space": true
+    },
+    {
+      "rule": "file-has-hash-in-head",
+      "path": "SpringMvc_webApp/src/main/webapp/WEB-INF/views/form/error.jsp",
+      "hash": "273b1953674cda20bcddcb626eea85e4fee54171",
+      "alternative-title": "'error.jsp' view was moved to views",
+      "score-if-correct": 10
+    },
+    {
+      "rule": "file-has-hash-in-head",
+      "path": "SpringMvc_webApp/src/main/webapp/WEB-INF/views/form/final.jsp",
+      "hash": "2563426913b92dbaf630676a5a9d9c0f10fc87fa",
+      "alternative-title": "'final.jsp' view was moved to views",
+      "score-if-correct": 10
+    },
+    {
+      "rule": "file-has-hash-in-head",
+      "path": "SpringMvc_webApp/src/main/webapp/WEB-INF/views/form/form.jsp",
+      "hash": "5f93efd17a4732a4023731d182927a42879e8f5d",
+      "alternative-title": "'form.jsp' view was moved to views",
+      "score-if-correct": 10
+    },
+    {
+      "rule": "file-has-hash-in-head",
+      "path": "SpringMvc_webApp/src/main/webapp/WEB-INF/views/form/result.jsp",
+      "hash": "23389f2b6302985652dc218289ecd83a637b504a",
+      "alternative-title": "'result.jsp' view was moved to views",
+      "score-if-correct": 10
+    },
+    {
+      "rule": "any-commit-message-contains",
+      "contents": "move view files",
+      "ignore-case": true,
+      "score-if-correct": 5,
+      "alternative-title": "moved view files were added to the correct commit"
+    },
+    {
+      "rule": "text",
+      "separator": "-",
+      "width": 100,
+      "heading": "IGNORING FILES",
+      "double-space": true
+    },
+    {
+      "rule": "file-tracked-in-head",
+      "path": ".gitignore",
+      "score-if-correct": 10,
+      "alternative-title": "A '.gitignore' file was created"
+    },
+    {
+      "rule": "commit-with-message-updated-file",
+      "path": ".gitignore",
+      "contents": "generate gitignore",
+      "ignore-case": true,
+      "alternative-title": "The '.gitignore' file was committed with the right message",
+      "score-if-correct": 10
+    },
+    {
+      "rule": "ignored",
+      "path": "SpringMvc_webApp/compiled_builds/any.bak",
+      "alternative-title": "Git ignores all backup files in 'SpringMvc_webApp/compiled_builds'",
+      "score-if-correct": 10
+    },
+    {
+      "rule": "any-commit-message-contains",
+      "contents": "Ignore all backups",
+      "ignore-case": true,
+      "score-if-correct": 5
+    },
+    {
+      "rule": "text",
+      "separator": "-",
+      "width": 100,
+      "heading": "BRANCHING",
+      "double-space": true
+    },
+    {
+      "rule": "branch-exists",
+      "branch": "request-map",
+      "score-if-correct": 15,
+      "alternative-title": "The 'request-map' branch has been created."
+    },
+    {
+      "rule": "file-contains-in-branch",
+      "branch": "request-map",
+      "path": "SpringMvc_webApp/src/main/java/labMvc/control/IndexController.java",
+      "contents": "return \"/form/final\";",
+      "ignore-case": true,
+      "score-if-correct": 10,
+      "alternative-title": "Feature was added to the IndexController.java file in the new branch."
+    },
+    {
+      "rule": "commit-with-message-was-made-on-branch",
+      "branch": "request-map",
+      "contents": "add request mapping",
+      "ignore-case": true,
+      "score-if-correct": 10,
+      "alternative-title": "Changes to the IndexController file were made and committed on the new branch."
+    },
+    {
+      "rule": "text",
+      "separator": "-",
+      "width": 100,
+      "heading": "MERGING",
+      "double-space": true
+    },
+    {
+      "rule": "commit-with-message-was-merged-into-branch",
+      "branch": "master",
+      "contents": "add request mapping",
+      "ignore-case": true,
+      "score-if-correct": 10,
+      "alternative-title": "The commit that added the request mapping feature to the IndexController file has been merged into the 'master' branch"
+    },
+    {
+      "rule": "file-tracked-in-head",
+      "path": "SpringMvc_webApp/file.txt",
+      "score-if-correct": 10,
+      "alternative-title": "A 'file.txt' file was created"
+    },
+    {
+      "rule": "commit-with-message-updated-file",
+      "path": "SpringMvc_webApp/file.txt",
+      "contents": "add file",
+      "ignore-case": true,
+      "score-if-correct": 10,
+      "alternative-title": "'file.txt' was committed with the right message"
+    }, 
+    {
+      "rule": "text",
+      "separator": "-",
+      "width": 100,
+      "heading": "MERGE CONFLICT",
+      "double-space": true
+    },
+    {
+      "rule": "branch-exists",
+      "branch": "bug-fix",
+      "score-if-correct": 5,
+      "alternative-title": "The 'bug-fix' branch has been created."
+    },
+    {
+      "rule": "commit-with-message-was-made-on-branch",
+      "branch": "bug-fix",
+      "contents": "change age default value",
+      "ignore-case": true,
+      "score-if-correct": 5,
+      "alternative-title": "The change age commit was done on the 'bug-fix' branch"
+    },
+    {
+      "rule": "commit-with-message-was-made-on-branch",
+      "branch": "master",
+      "contents": "change value of age variable",
+      "ignore-case": true,
+      "score-if-correct": 5,
+      "alternative-title": "The change age commit was done on the 'master' branch"
+    },
+    {
+      "rule": "commit-with-message-was-merged-into-branch",
+      "branch": "master",
+      "contents": "change age default value",
+      "ignore-case": true,
+      "score-if-correct": 10,
+      "alternative-title": "The commit that changed the age value has been merged into the 'master' branch"
+    },
+    {
+      "rule": "commit-with-message-updated-file",
+      "path": "SpringMvc_webApp/src/main/java/labMvc/domain/Student.java",
+      "contents": "keep 22 as age value",
+      "ignore-case": true,
+      "alternative-title": "The merge conflict was resolved and committed with the correct message",
+      "score-if-correct": 5
+    },
+    {
+      "rule": "file-contains-in-branch",
+      "branch": "master",
+      "contents": "private Integer age = 22",
+      "path": "SpringMvc_webApp/src/main/java/labMvc/domain/Student.java",
+      "ignore-case": true,
+      "score-if-correct": 10,
+      "alternative-title": "The merge conflict was resolved with the Student.java file"
+    } 
+  ]
+}
