@@ -2,7 +2,7 @@ package labMvc.domain;
 
 // adapted from: http://www.tutorialspoint.com/spring/spring_mvc_form_handling_example.htm
 public class Student {
-   private Integer age = 11;
+   private Integer age = 16;
    private String name;
    private Integer id;
    
